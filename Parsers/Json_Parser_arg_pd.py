@@ -13,8 +13,7 @@ args = parser.parse_args()
 #my_file = "/Users/dix/Python/python/Parsers/webserver_log.json"
 #message = "Error"
 
-df = pd.read_json(args.my_file, orient="split", lines=True, chunksize=5)
-
+df = pd.read_json(args.my_file, orient="records", lines=True, chunksize=5)
 count = 0
 for data in df:
     match = re.search(args.message, data['message'])
