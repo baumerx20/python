@@ -12,7 +12,6 @@ class NetworkUtilites:
         nslookup_result_ip = socket.gethostbyname(domain)
         print(nslookup_result_ip)
 
-
 def run() -> None:
     network_utilities = NetworkUtilites()
     network_utilities.nslookup(args.domain)
