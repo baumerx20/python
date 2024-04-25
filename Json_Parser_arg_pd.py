@@ -1,4 +1,3 @@
-import json
 import re
 import argparse
 import pandas as pd
@@ -13,10 +12,10 @@ args = parser.parse_args()
 #my_file = "/Users/dix/Python/python/Parsers/webserver_log.json"
 #message = "Error"
 
-df = pd.read_json(args.my_file, orient="split", lines=True, chunksize=5)
-
+chunks = pd.read_json(args.my_file, lines=True, chunksize = 50)
 count = 0
-for data in df:
+for data in chunks:
+    print(data)
     match = re.search(args.message, data['message'])
     if match:
         count = count+1
