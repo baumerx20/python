@@ -97,10 +97,9 @@ def check_clipboard():
     try:     
         installed_status1 = subprocess.check_output(['pbpaste']).decode('utf-8').strip()       
         if installed_status1:
-            print("Clipboard Contents")
             print(installed_status1)        
         else:
-            print("Cannot Clipboard Contents")
+            print("Clipboard Contents Empty")
     except subprocess.CalledProcessError:
         print("Failed to check Cannot Clipboard Contents.")
 
