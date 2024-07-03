@@ -14,7 +14,7 @@ CHECK_INTERVAL = 60
 EMAIL_ALERTS = True 
 EMAIL_TO = "admin@example.com" 
 EMAIL_FROM = "alert@example.com" 
-SMTP_SERVER = "smtp.example.com" 
+SMTP_SERVER = "smtp.example.com" # Internal Only. Reminds me of something.
 
 #TODO: Need to evaluate differences in Auth
 FAILED_LOGIN_PATTERN = re.compile(r"Failed password for .* from (\d+\.\d+\.\d+\.\d+)")
@@ -57,4 +57,3 @@ def monitor_log():
 
 if __name__ == "__main__":
     monitor_log()
-Explanation:
