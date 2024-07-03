@@ -1,28 +1,46 @@
+/*
+ Note: I combined several example files for this
+ Also I have several defined classes which may not be called
+ check the void loop() main
+
+  OLED pins to ESP32 GPIOs via this connecthin:
+  OLED_SDA -- GPIO4
+  OLED_SCL -- GPIO15
+  OLED_RST -- GPIO16
+  
+ 
+  this project also realess in GitHub:
+  https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series
+*/
 #include "heltec.h" 
 
 char Readback[50];
-#define BAND    915E6  //band 868E6,915E6
+#define BAND    915E6  //you can set band here directly,e.g. 868E6,915E6
 //Define LED GPIO PINS
-int redPin = 13;                  // Red LED connected to digital pin 13
-int greenPin = 12;                // Green LED connected to digital pin 12
+
+int redPin = 13;                  // Red LED connected to digital pin 12
+int greenPin = 12;                // Green LED connected to digital pin 11
 
 //Define Buzzer Code
-// Buzzer disabled
 int buzzer_pin = 14;
 int button_pin = 27;
 int freq = 2000;
 int channel = 0;
 int resolution = 8;
 
+
+
 String rssi = "RSSI --";
 String packSize = "--";
 String packet ;
 
-void Leds()                      
+void Leds()                      // run once, when the sketch starts
 {
-  pinMode(redPin, OUTPUT);        
-  pinMode(greenPin, OUTPUT);      
+  pinMode(redPin, OUTPUT);        // sets the digital pin as output
+  pinMode(greenPin, OUTPUT);      // sets the digital pin as output
 }
+
+
 
 void reciever() {
   // try to parse packet
@@ -95,7 +113,8 @@ void button(){
 
 void setup() {
   //Serial.begin(115200);
-   
+  
+    
   Heltec.begin(true /*DisplayEnable Enable*/, true /*Heltec.Heltec.Heltec.LoRa Disable*/, true /*Serial Enable*/, true /*PABOOST Enable*/, BAND /*long BAND*/);
  
   Heltec.display->init();
@@ -111,6 +130,7 @@ void setup() {
 }
 
 
+// Run the following
 void loop() {
 Leds();
 reciever();

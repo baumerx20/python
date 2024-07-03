@@ -25,6 +25,7 @@ String packet ;
 
 //Define LED
 
+
 // Example Setup for testing
 // Not used as my Reciever does not use a display
 void loraSetup()
@@ -129,5 +130,6 @@ void setup() {
 void loop() {
   doorChanged();
   LoRA();
+
   delay(10000);
 }
